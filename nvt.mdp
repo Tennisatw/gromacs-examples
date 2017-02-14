@@ -1,0 +1,56 @@
+;	Input for NVE
+;
+;dt in ps
+integrator		=  md-vv
+nsteps			=  10000
+dt			=  0.002
+;
+; Removing CM Translation and Rotation
+comm_mode		=  Linear 
+nstcomm			=  1000
+;
+; Output Control 
+nstlog			= 10
+nstenergy		= 10
+nstxout			= 10
+nstvout			= 10
+nstxtcout               = 10
+nstfout			= 10
+;
+; Neighbour Searching
+nstlist			= 10
+ns_type			= grid
+pbc			= xyz
+rlist			= 0.9
+;
+; Electrostatic
+rcoulomb		= 0.9
+coulombtype		= pme
+;
+; VdW
+vdw-type            	= shift
+rvdw                	= 0.7 
+;
+; Temperature
+;also v-rescale, nose-hoover
+Tcoupl			= berendsen
+tc_grps                 = system
+tau_t                   = 2
+ref_t                   = 298.15
+;
+; Pressure
+;also berendsen, Parrinelo-Rahman, MTTK
+Pcoupl			=  no
+;pcoupltype             = isotropic
+;tau_p                  = 0.5
+;compressibility        = 4.5e-5
+;ref_p                 = 1.0
+;
+; Initial Velocities
+gen_vel			= yes
+gen_temp		= 298.15
+gen_seed = -1
+;
+; Constraints
+constraints          =  all-bonds
+constraint-algorithm =  shake

@@ -1,0 +1,26 @@
+;Neon topology file; force field parameters taken from http://dx.doi.org/10.1063/1.3023036
+
+;global specifications
+[ defaults ]
+;function comb-rule gen-pairs fudjeLJ fudjeQQ
+1         3         yes       1.0     1.0
+
+[ atomtypes ]
+;atype mass(amu) charge(e) type sigma(nm) epsilon(kJ mol-1)
+Ne     20.1797   0.0       A    0.2782    0.3100
+
+[ moleculetype ]
+;molname r-exclusions
+Neon     2
+
+;local specifications
+[ atoms ]
+;n atype res-n res  label chargegroup charge mass
+1  Ne    1     Neon Ne    1
+
+[ system ]
+NeonFluid
+
+[ molecules ]
+;molname number
+Neon     512
