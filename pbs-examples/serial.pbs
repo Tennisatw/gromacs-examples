@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -S /bin/bash 
+#PBS -N equilel
+#PBS -l walltime=2:00:00
+#PBS -l procs=1
+#PBS -l mem=256mb
+
+cd $PBS_O_WORKDIR
+
+echo "Node file: $PBS_NODEFILE :"
+echo "---------------------"
+cat $PBS_NODEFILE
+echo "---------------------"
+NUM_PROCS=`/bin/awk 'END {print NR}' $PBS_NODEFILE`
+echo "Running on $NUM_PROCS processors."
+echo ""
+
+module load application/gromacs/4.6.1  
+
+time mdrun -v -deffnm water
