@@ -29,7 +29,7 @@ coulombtype		= pme
 ;
 ; VdW
 vdw-type            	= shift
-rvdw                	= 0.7 
+rvdw                	= 0.9 
 ;
 ; Temperature
 ;also v-rescale, nose-hoover
@@ -44,7 +44,7 @@ Pcoupl			=  no
 ;pcoupltype             = isotropic
 ;tau_p                  = 0.5
 ;compressibility        = 4.5e-5
-;ref_p                 = 1.0
+;ref_p                  = 1.0
 ;
 ; Initial Velocities
 gen_vel			= yes
@@ -52,5 +52,5 @@ gen_temp		= 298.15
 gen_seed = -1
 ;
 ; Constraints
-constraints          =  all-bonds
-constraint-algorithm =  shake
+constraints             =  all-bonds
+constraint-algorithm    =  shake
