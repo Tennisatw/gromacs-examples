@@ -1,4 +1,4 @@
-;	Input for NVE
+;	Input for NVT
 ;
 ;dt in ps
 integrator		=  md-vv
