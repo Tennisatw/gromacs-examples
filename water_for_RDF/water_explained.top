@@ -1,0 +1,47 @@
+;content of forcefield.itp
+[ defaults ]
+; nbfunc	comb-rule	gen-pairs	fudgeLJ	fudgeQQ
+1		3		yes		0.5	0.5
+
+; forcefield.itp puts this new include files:
+[ atomtypes ]
+opls_116   OW	8     15.99940    -0.820       A    3.16557e-01  6.50194e-01
+opls_117   HW	1      1.00800     0.410       A    0.00000e+00  0.00000e+00
+
+;content of spc.itp
+[ moleculetype ]
+; molname	nrexcl
+SOL		2
+
+[ atoms ]
+;   nr   type  resnr residue  atom   cgnr     charge       mass
+     1  opls_116   1    SOL     OW      1      -0.82
+     2  opls_117   1    SOL    HW1      1       0.41
+     3  opls_117   1    SOL    HW2      1       0.41
+
+#ifndef FLEXIBLE
+[ settles ]
+; OW	funct	doh	dhh
+1	1	0.1	0.16330
+
+[ exclusions ]
+1	2	3
+2	1	3
+3	1	2
+#else
+[ bonds ]
+; i	j	funct	length	force.c.
+1	2	1	0.1	345000	0.1     345000
+1	3	1	0.1	345000	0.1     345000
+	
+[ angles ]
+; i	j	k	funct	angle	force.c.
+2	1	3	1	109.47	383	109.47	383
+#endif
+
+;what is written in the local topology file
+[ system ]
+bulk water
+
+[ molecules]
+SOL 216
